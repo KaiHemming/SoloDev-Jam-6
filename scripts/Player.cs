@@ -3,9 +3,10 @@ using System;
 
 public partial class Player : Godot.CharacterBody2D
 {
-	public const float Speed = 300.0f;
+	public const float Speed = 350.0f;
 	public const float JumpVelocity = -950.0f;
 	private AnimatedSprite2D _animatedSprite;
+	private TileMap _snowTileMap;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = 2000;
@@ -15,10 +16,12 @@ public partial class Player : Godot.CharacterBody2D
 	private Boolean isLanding = false;
 	private Boolean hasDived  = false;
 	private Boolean isDiving = false;
+	private PackedScene SnowExplosionScene = GD.Load<PackedScene>("res://scenes/SnowExplosion.tscn");
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_animatedSprite.Play("idle");
+		_snowTileMap = GetParent<Node>().GetNode<TileMap>("Snow");
 	}
 
 
@@ -95,6 +98,17 @@ public partial class Player : Godot.CharacterBody2D
 		}
 		Velocity = velocity;
 		MoveAndSlide();
+
+		// Detects snow collision and deletes snow
+		// TODO: Snow particles
+		if ((TileMap)GetLastSlideCollision().GetCollider() == _snowTileMap) {
+			_snowTileMap.Call("DestroyTile", this.Position);
+			// //Explosion particles
+			// SnowExplosion explosion = (SnowExplosion)SnowExplosionScene.Instantiate();
+			// explosion.Position = GlobalPosition;
+			// GD.Print("Adding explosion at " + explosion.GlobalPosition);
+			// this.AddChild(explosion);
+		}
 	}
 	private void _on_animated_sprite_2d_animation_finished()
 	{

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtxwaep6qssti"]
+
+[ext_resource type="Texture2D" uid="uid://b3soy3ql2panc" path="res://assets/Festive_Frenzy_Teddy.png" id="1_jpjip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pimod"]
+
+[node name="Teddy" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pimod")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jpjip")

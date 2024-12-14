@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5tgyatmi5nik"]
+
+[ext_resource type="Texture2D" uid="uid://1fk23lvsanob" path="res://assets/Festive_Frenzy_Stocking.png" id="1_kec8g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1f7y"]
+radius = 7.0
+height = 20.0
+
+[node name="Stocking" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kec8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_u1f7y")

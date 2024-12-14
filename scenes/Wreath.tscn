@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5x38k6s2hsw2"]
+
+[ext_resource type="Texture2D" uid="uid://4msvm8w18g16" path="res://assets/Festive_Frenzy_Wreath.png" id="1_c60mb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7j34"]
+radius = 15.0
+height = 36.0
+
+[node name="Wreath" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c60mb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_f7j34")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bphaf2nfboiwn"]
+
+[ext_resource type="Texture2D" uid="uid://gnjtgv4lsu6x" path="res://assets/Festive_Frenzy_Gnome.png" id="1_edusi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pn8h3"]
+radius = 7.0
+
+[node name="Gnome" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_edusi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_pn8h3")

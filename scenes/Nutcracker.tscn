@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh0ox1wb2onyc"]
+
+[ext_resource type="Texture2D" uid="uid://bd2xh52x20udy" path="res://assets/Festive_Frenzy_Nutcracker.png" id="1_e1dq4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kt6o0"]
+radius = 4.0
+height = 28.0
+
+[node name="Nutcracker" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e1dq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kt6o0")

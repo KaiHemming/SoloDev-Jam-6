@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dgvnd88du32t0"]
+[gd_scene load_steps=53 format=3 uid="uid://dgvnd88du32t0"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_vkg5g"]
 [ext_resource type="Texture2D" uid="uid://12mjgft7v2rc" path="res://assets/Penguin_dive.png" id="3_f5blk"]
@@ -10,6 +10,10 @@
 [ext_resource type="TileSet" uid="uid://4cnh5e6uvi4d" path="res://assets/terrain.tres" id="8_nr4iy"]
 [ext_resource type="TileSet" uid="uid://c0l0dejqqsyi" path="res://assets/buildings.tres" id="9_bv8do"]
 [ext_resource type="Texture2D" uid="uid://qnt43rhn7kn1" path="res://assets/kenney-background-elements-redux.png" id="9_ku6sa"]
+[ext_resource type="Script" path="res://scripts/Snow.cs" id="10_1pnoe"]
+[ext_resource type="PackedScene" uid="uid://bh0ox1wb2onyc" path="res://scenes/Nutcracker.tscn" id="12_gwtbd"]
+[ext_resource type="PackedScene" uid="uid://5x38k6s2hsw2" path="res://scenes/Wreath.tscn" id="13_p25kh"]
+[ext_resource type="PackedScene" uid="uid://bphaf2nfboiwn" path="res://scenes/Gnome.tscn" id="14_7n10y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8ehh"]
 radius = 30.0
@@ -304,15 +308,13 @@ animations = [{
 position = Vector2(219, 616)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(400, 365)
+position = Vector2(500, 0)
 script = ExtResource("2_vkg5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(400, 0)
 shape = SubResource("CapsuleShape2D_q8ehh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(400, 0)
 scale = Vector2(2.875, 2.875)
 sprite_frames = SubResource("SpriteFrames_nxv4k")
 animation = &"dive"
@@ -320,9 +322,20 @@ frame = 7
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(400, 0)
 offset = Vector2(0, -50)
 zoom = Vector2(0.9, 0.9)
+
+[node name="ObjectCollection" type="Node" parent="."]
+
+[node name="Nutcracker" parent="ObjectCollection" instance=ExtResource("12_gwtbd")]
+position = Vector2(360, 634)
+
+[node name="Wreath" parent="ObjectCollection" instance=ExtResource("13_p25kh")]
+position = Vector2(1133, 1131)
+rotation = 2.27416
+
+[node name="Gnome" parent="ObjectCollection" instance=ExtResource("14_7n10y")]
+position = Vector2(1947, 1079)
 
 [node name="PlatformerTiles" type="TileMap" parent="."]
 position = Vector2(400, 511)
@@ -345,7 +358,8 @@ layer_1/tile_data = PackedInt32Array(-65507, 655360, 1, -131043, 786432, 0, -131
 position = Vector2(400, 511)
 tile_set = ExtResource("8_nr4iy")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65530, 65536, 2, -65529, 131072, 2, -65528, 131072, 2, -65527, 131072, 2, -65526, 131072, 2, -65525, 131072, 2, -65524, 131072, 2, -65523, 196608, 2)
+layer_0/tile_data = PackedInt32Array(-65523, 196608, 2, -65524, 131072, 2, -65525, 131072, 2, -65526, 131072, 2, -65527, 131072, 2, -65528, 131072, 2, -65529, 131072, 2, -65530, 65536, 2)
+script = ExtResource("10_1pnoe")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(1.2, 1.2)
