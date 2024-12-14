@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://djc58vd8xs3b3"]
+
+[ext_resource type="Texture2D" uid="uid://4msvm8w18g16" path="res://assets/Festive_Frenzy_Wreath.png" id="1_0epkf"]
+[ext_resource type="Script" path="res://scripts/UI.cs" id="1_epocd"]
+[ext_resource type="FontFile" uid="uid://b7eb1feys2jme" path="res://assets/madspixel.ttf" id="1_nygbx"]
+[ext_resource type="Texture2D" uid="uid://gnjtgv4lsu6x" path="res://assets/Festive_Frenzy_Gnome.png" id="2_1gpij"]
+[ext_resource type="Texture2D" uid="uid://bd2xh52x20udy" path="res://assets/Festive_Frenzy_Nutcracker.png" id="3_15rf8"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_epocd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 10.0
+offset_right = 72.0
+offset_bottom = 78.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_nygbx")
+theme_override_font_sizes/font_size = 32
+text = "Found items"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Wreath" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 2
+texture = ExtResource("1_0epkf")
+
+[node name="Gnome" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 2
+texture = ExtResource("2_1gpij")
+
+[node name="Nutcracker" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.137255, 0.137255, 0.137255, 1)
+layout_mode = 2
+texture = ExtResource("3_15rf8")

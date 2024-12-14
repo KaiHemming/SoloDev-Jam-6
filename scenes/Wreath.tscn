@@ -7,6 +7,7 @@ radius = 15.0
 height = 36.0
 
 [node name="Wreath" type="Area2D"]
+z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_c60mb")

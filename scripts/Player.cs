@@ -67,7 +67,7 @@ public partial class Player : Godot.CharacterBody2D
 			}
 			_animatedSprite.FlipH = Velocity.X < 0;
 			if (isDiving) {
-				velocity.X = direction.X * Speed * 3;
+				velocity.X = direction.X * Speed * 2;
 			} else {
 				velocity.X = direction.X * Speed;
 			}
@@ -103,11 +103,6 @@ public partial class Player : Godot.CharacterBody2D
 		// TODO: Snow particles
 		if ((TileMap)GetLastSlideCollision().GetCollider() == _snowTileMap) {
 			_snowTileMap.Call("DestroyTile", this.Position);
-			// //Explosion particles
-			// SnowExplosion explosion = (SnowExplosion)SnowExplosionScene.Instantiate();
-			// explosion.Position = GlobalPosition;
-			// GD.Print("Adding explosion at " + explosion.GlobalPosition);
-			// this.AddChild(explosion);
 		}
 	}
 	private void _on_animated_sprite_2d_animation_finished()

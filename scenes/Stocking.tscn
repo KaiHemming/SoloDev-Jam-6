@@ -7,6 +7,7 @@ radius = 7.0
 height = 20.0
 
 [node name="Stocking" type="Area2D"]
+z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_kec8g")

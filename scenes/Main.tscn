@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dgvnd88du32t0"]
+[gd_scene load_steps=55 format=3 uid="uid://dgvnd88du32t0"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_vkg5g"]
 [ext_resource type="Texture2D" uid="uid://12mjgft7v2rc" path="res://assets/Penguin_dive.png" id="3_f5blk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://egfo1a867htl" path="res://assets/Penguin_jump.png" id="6_3dai6"]
 [ext_resource type="Texture2D" uid="uid://co1ssy1crph8r" path="res://assets/Penguin_land.png" id="7_imxqw"]
 [ext_resource type="Texture2D" uid="uid://c22lm0jqmfle5" path="res://assets/Penguin_walk.png" id="8_04g0v"]
+[ext_resource type="PackedScene" uid="uid://djc58vd8xs3b3" path="res://scenes/UI.tscn" id="8_4h5k3"]
+[ext_resource type="Script" path="res://scripts/ObjectCollection.cs" id="8_kl13t"]
 [ext_resource type="TileSet" uid="uid://4cnh5e6uvi4d" path="res://assets/terrain.tres" id="8_nr4iy"]
 [ext_resource type="TileSet" uid="uid://c0l0dejqqsyi" path="res://assets/buildings.tres" id="9_bv8do"]
 [ext_resource type="Texture2D" uid="uid://qnt43rhn7kn1" path="res://assets/kenney-background-elements-redux.png" id="9_ku6sa"]
@@ -307,6 +309,10 @@ animations = [{
 [node name="Main" type="Node2D"]
 position = Vector2(219, 616)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("8_4h5k3")]
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(500, 0)
 script = ExtResource("2_vkg5g")
@@ -326,6 +332,7 @@ offset = Vector2(0, -50)
 zoom = Vector2(0.9, 0.9)
 
 [node name="ObjectCollection" type="Node" parent="."]
+script = ExtResource("8_kl13t")
 
 [node name="Nutcracker" parent="ObjectCollection" instance=ExtResource("12_gwtbd")]
 position = Vector2(360, 634)
@@ -377,3 +384,6 @@ centered = false
 
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="body_entered" from="ObjectCollection/Nutcracker" to="ObjectCollection" method="_on_nutcracker_body_entered"]
+[connection signal="body_entered" from="ObjectCollection/Wreath" to="ObjectCollection" method="_on_wreath_body_entered"]
+[connection signal="body_entered" from="ObjectCollection/Gnome" to="ObjectCollection" method="_on_gnome_body_entered"]

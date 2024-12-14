@@ -7,3 +7,4 @@ Kenney Platformer Art Buildings https://kenney.nl/assets/platformer-art-building
 Kenney Background Elements Redux https://kenney.nl/assets/background-elements-redux
 WilliamBilliam Festive Frenzy Sprite Sheet https://williambilliam.itch.io/festive-frenzy-sprite-sheet 
 Stone Castle Lab Pixel Art Snowflakes https://stonecastle.itch.io/pixel-art-snowflakes
+Madsrhea Madspixel font https://madsrhea.itch.io/madspixel 
