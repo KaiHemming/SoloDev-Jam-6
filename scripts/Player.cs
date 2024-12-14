@@ -63,14 +63,22 @@ public partial class Player : Godot.CharacterBody2D
 				_animatedSprite.Play("walk");
 			}
 			_animatedSprite.FlipH = Velocity.X < 0;
-			velocity.X = direction.X * Speed;
+			if (isDiving) {
+				velocity.X = direction.X * Speed * 3;
+			} else {
+				velocity.X = direction.X * Speed;
+			}
 		}
 		else
 		{
 			if (!isJumping & !isLanding) {
 				_animatedSprite.Play("idle");
 			}
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			if (isDiving) {
+				velocity.X = Velocity.X;
+			} else {
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			}
 		}
 
 		// Handle Jump.
@@ -79,12 +87,11 @@ public partial class Player : Godot.CharacterBody2D
 				velocity.Y = JumpVelocity;
 				isJumping = true;
 			} else {
-				GD.Print("Instantiate dive");
-				isDiving = true;
+				if (direction != Vector2.Zero) {
+					GD.Print("Instantiate dive");
+					isDiving = true;
+				}
 			}
-		}
-		if (isDiving) {
-			velocity.X = velocity.X * 2;
 		}
 		Velocity = velocity;
 		MoveAndSlide();
