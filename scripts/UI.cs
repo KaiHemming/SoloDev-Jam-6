@@ -18,6 +18,12 @@ public partial class UI : Control
 			case "Nutcracker":
 				((TextureRect)container.GetChild(2)).Modulate = Godot.Colors.White;
 				break;
+			case "Teddy":
+				((TextureRect)container.GetChild(3)).Modulate = Godot.Colors.White;
+				break;
+			case "Stocking":
+				((TextureRect)container.GetChild(4)).Modulate = Godot.Colors.White;
+				break;
 			default:
 				GD.Print("Attempted to add non-existent item to GUI");
 				break; // ERROR

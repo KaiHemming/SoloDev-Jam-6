@@ -25,7 +25,6 @@ public partial class Snow : TileMap
 		// Round and get tile
 		var floor_pos = (Vector2I)(globalPositionOffset/70).Floor();
 		var ceil_pos = (Vector2I)(globalPositionOffset/70).Ceil();
-		GD.Print("Removing at " + floor_pos + " & " + ceil_pos);
 
 		// Destroy tile
 		SetCell(0, floor_pos, sourceId: -1, alternativeTile: -1);
@@ -36,7 +35,6 @@ public partial class Snow : TileMap
 		explositionPosition.Y += 40;
 		SnowExplosion explosion = (SnowExplosion)SnowExplosionScene.Instantiate();
 		explosion.GlobalPosition = explositionPosition;
-		GD.Print("Adding explosion at " + explosion.GlobalPosition);
 		GetParent().AddChild(explosion);
 	}
 }
