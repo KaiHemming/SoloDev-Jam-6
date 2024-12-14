@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CharacterBody2D : Godot.CharacterBody2D
+public partial class Player : Godot.CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -950.0f;
@@ -46,28 +46,13 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 		else {
 			if (isJumping) {
 				isLanding = true;
-				isJumping = false;
-				hasJumped = false;
-				hasDived = false;
-				isDiving = false; // Change
 				_animatedSprite.Play("land");
-				if (isDiving) {
-					// TODO:
-				}
 			}
+			isJumping = false;
+			hasJumped = false;
+			hasDived = false;
+			isDiving = false;
 		}
-
-		// // Handle Jump.
-		// if (Input.IsActionJustPressed("ui_accept")) {
-		// 	if (IsOnFloor()) {
-		// 		velocity.Y = JumpVelocity;
-		// 		isJumping = true;
-		// 	} else {
-		// 		GD.Print("Instantiate dive");
-		// 		velocity.X = velocity.X * 5;
-		// 		isDiving = true;
-		// 	}
-		// }
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -95,9 +80,11 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 				isJumping = true;
 			} else {
 				GD.Print("Instantiate dive");
-				velocity.X = velocity.X * 10;
 				isDiving = true;
 			}
+		}
+		if (isDiving) {
+			velocity.X = velocity.X * 2;
 		}
 		Velocity = velocity;
 		MoveAndSlide();
