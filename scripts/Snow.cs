@@ -23,11 +23,13 @@ public partial class Snow : TileMap
 		globalPositionOffset = globalPosition - Position;
 
 		// Round and get tile
-		var pos = (Vector2I)(globalPositionOffset/70).Round();
-		GD.Print("Removing at " + pos + "global: " + globalPositionOffset);
+		var floor_pos = (Vector2I)(globalPositionOffset/70).Floor();
+		var ceil_pos = (Vector2I)(globalPositionOffset/70).Ceil();
+		GD.Print("Removing at " + floor_pos + " & " + ceil_pos);
 
 		// Destroy tile
-		SetCell(0, pos, sourceId: -1, alternativeTile: -1);
+		SetCell(0, floor_pos, sourceId: -1, alternativeTile: -1);
+		SetCell(0, ceil_pos, sourceId: -1, alternativeTile: -1);
 
 		//Explosion particles
 		Godot.Vector2 explositionPosition = globalPosition;

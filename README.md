@@ -1,4 +1,7 @@
 # SoloDev-Jam-6
+72 hour game jam.
+Theme: Under The Surface.
+
 https://itch.io/jam/solodevelopment-jam-6-winter-jam
 
 # Asset Credits
