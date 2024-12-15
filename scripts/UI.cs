@@ -3,9 +3,7 @@ using System;
 
 public partial class UI : Control
 {
-	Boolean hasFoundWreath = false;
-	Boolean hasFoundGnome = false;
-	Boolean hasFoundNutcracker = false;
+	int numFound = 0;
 	public void findItem(String name) {
 		HBoxContainer container = (HBoxContainer)this.GetChild(0).GetChild(1);
 		switch (name) {
@@ -28,6 +26,25 @@ public partial class UI : Control
 				GD.Print("Attempted to add non-existent item to GUI");
 				break; // ERROR
 		}
-	
+		numFound++;
+		DisplayFoundMessage();
+	}
+	public async void DisplayFoundMessage() {
+		Label congratulationMessage = (Label)this.GetChild(1);
+		GD.Print(numFound);
+		if (numFound == 5) {
+			// Found all items, change message.
+			congratulationMessage.Text = "I found all the decorations! Yippee!";
+		}
+		if (numFound == 2) {
+			congratulationMessage.Text = "I found another decoration, cute!";
+		}
+		congratulationMessage.Visible = true;
+		await ToSignal(GetTree().CreateTimer(3f), SceneTreeTimer.SignalName.Timeout);
+		if (numFound == 5) {
+			congratulationMessage.Text = "Thanks for playing!";
+		} else {
+			congratulationMessage.Visible = false;
+		}
 	}
 }

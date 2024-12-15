@@ -28,6 +28,7 @@ public partial class ObjectCollection : Node
 	private void _on_nutcracker_body_entered(Node2D body)
 	{
 		if (body is Player) {
+			GD.Print("Collided with item");
 			UI.Call("findItem", "Nutcracker");
 			Nutcracker.QueueFree();
 		}
@@ -37,6 +38,7 @@ public partial class ObjectCollection : Node
 	private void _on_wreath_body_entered(Node2D body)
 	{
 		if (body is Player) {
+			GD.Print("Collided with item");
 			UI.Call("findItem", "Wreath");
 			Wreath.QueueFree();
 		}
@@ -46,6 +48,7 @@ public partial class ObjectCollection : Node
 	private void _on_gnome_body_entered(Node2D body)
 	{
 		if (body is Player) {
+			GD.Print("Collided with item");
 			UI.Call("findItem", "Gnome");
 			Gnome.QueueFree();
 		}
@@ -54,6 +57,7 @@ public partial class ObjectCollection : Node
 	private void _on_teddy_body_shape_entered(Rid body_rid, Node2D body, long body_shape_index, long local_shape_index)
 	{
 		if (body is Player) {
+			GD.Print("Collided with item");
 			UI.Call("findItem", "Teddy");
 			Teddy.QueueFree();
 		}
@@ -63,6 +67,7 @@ public partial class ObjectCollection : Node
 	private void _on_stocking_body_shape_entered(Rid body_rid, Node2D body, long body_shape_index, long local_shape_index)
 	{
 		if (body is Player) {
+			GD.Print("Collided with item");
 			UI.Call("findItem", "Stocking");
 			Stocking.QueueFree();
 		}

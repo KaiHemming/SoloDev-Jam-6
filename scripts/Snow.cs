@@ -36,5 +36,9 @@ public partial class Snow : TileMap
 		SnowExplosion explosion = (SnowExplosion)SnowExplosionScene.Instantiate();
 		explosion.GlobalPosition = explositionPosition;
 		GetParent().AddChild(explosion);
+
+		//Play footstep
+		var player = (AudioStreamPlayer)(GetParent().GetNode("Footstep1"));
+		if (!player.Playing) player.Play();
 	}
 }

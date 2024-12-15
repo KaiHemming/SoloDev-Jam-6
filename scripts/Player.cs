@@ -100,9 +100,11 @@ public partial class Player : Godot.CharacterBody2D
 		MoveAndSlide();
 
 		// Detects snow collision and deletes snow
-		// TODO: Snow particles
-		if ((TileMap)GetLastSlideCollision().GetCollider() == _snowTileMap) {
-			_snowTileMap.Call("DestroyTile", this.Position);
+		var lastCollision = GetLastSlideCollision();
+		if (lastCollision != null) {
+			if (lastCollision.GetCollider() == _snowTileMap) {
+				_snowTileMap.Call("DestroyTile", this.Position);
+			}
 		}
 	}
 	private void _on_animated_sprite_2d_animation_finished()
