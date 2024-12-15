@@ -1,8 +1,10 @@
 # SoloDev-Jam-6
-72 hour game jam
-Theme: Under The Surface.
+A cozy penguin platformer game.
 
 Completed in 35 hours for the SoloDev Jam 6: https://itch.io/jam/solodevelopment-jam-6-winter-jam
+
+Theme: Under The Surface.
+
 Downloadable executables at https://kaihemming.itch.io/cozy-penguin-platformer
 
 ![Screenshot of game](https://github.com/KaiHemming/SoloDev-Jam-6/blob/main/screenshot.png)
