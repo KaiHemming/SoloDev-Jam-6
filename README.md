@@ -2,7 +2,11 @@
 72 hour game jam.
 Theme: Under The Surface.
 
+Completed in 30 hours.
+
 https://itch.io/jam/solodevelopment-jam-6-winter-jam
+
+Programmin
 
 # Asset Credits
 Kenney Platformer Art Winter https://kenney.nl/assets/platformer-art-winter 
